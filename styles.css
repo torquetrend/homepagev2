@@ -300,6 +300,7 @@ body {
 }
 
 /* Content Sections */
+/* Content Sections */
 .content-section {
   background: var(--background-dark);
   padding: 80px 5vw;
@@ -334,9 +335,10 @@ body {
   transition: transform var(--transition-time), box-shadow var(--transition-time);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-around; /* Space the items in the box */
   align-items: center;
   text-align: center;
+  height: 100%; /* Ensure the box takes full height */
 }
 
 .content-box:hover {
@@ -354,6 +356,7 @@ body {
   font-size: 1.2rem;
   margin-bottom: 24px;
   color: var(--text-color-dark);
+  flex-grow: 1; /* Let the paragraph grow to take available space */
 }
 
 .content-box .btn-inside {
