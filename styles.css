@@ -237,19 +237,34 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background: url("F40-salt-flats.jpg") no-repeat center center/cover;
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden; /* Ensures the pseudo-element stays within bounds */
 }
 
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("F40-salt-flats.jpg") no-repeat center center/cover;
+  filter: blur(10px); /* Adjust the blur radius to your preference */
+  z-index: 1; /* Keeps the blur behind the content */
+  opacity: 0.8; /* Optional: Add opacity to the blurred background */
+}
+
+/* Ensuring hero-content is above the blurred background */
 .hero-content {
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--accent-color);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(0); /* This ensures the content itself is not blurred */
   padding: 50px;
-  box-shadow: var(--box-shadow-soft);
   border-radius: var(--border-radius);
   text-transform: uppercase;
 }
