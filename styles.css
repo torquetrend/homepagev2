@@ -261,10 +261,9 @@ body {
   }
 }
 
-/* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #e6e6e6, #c2c2c2),
-    url("car-bg.jpg") no-repeat center center/cover;
+  background: linear-gradient(135deg, rgba(230, 230, 230, 0.7), rgba(194, 194, 194, 0.7)),
+    url("F40-salt-flats.jpg") no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
