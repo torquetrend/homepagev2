@@ -17,14 +17,16 @@
             <div class="logo">
                 <h1>TorqueTrend</h1>
             </div>
+
             <!-- Hamburger Menu Icon for mobile -->
-            <div class="hamburger-menu" aria-label="Menu" aria-expanded="false">
+            <div class="hamburger-menu" aria-label="Menu" aria-expanded="false" onclick="toggleSidebar()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
+
             <!-- Primary navigation for desktop -->
-            <nav class="desktop-nav">
+            <nav class="nav-container">
                 <ul class="nav-buttons" id="nav-menu" aria-label="Primary Navigation">
                     <li><button onclick="scrollToSection('home')">Home</button></li>
                     <li><button onclick="scrollToSection('blog')">Blog</button></li>
@@ -32,6 +34,7 @@
                     <li><button onclick="scrollToSection('reviews')">Reviews</button></li>
                 </ul>
             </nav>
+
             <!-- Search bar for desktop -->
             <div class="search-bar">
                 <input type="text" id="search-bar" placeholder="Search..." aria-label="Search">
@@ -46,6 +49,7 @@
             <div class="sidebar-logo">
                 <h1>TorqueTrend</h1>
             </div>
+
             <!-- Sidebar navigation for mobile -->
             <nav class="mobile-nav">
                 <ul aria-label="Mobile Navigation">
@@ -55,6 +59,7 @@
                     <li><button onclick="scrollToSection('reviews')">Reviews</button></li>
                 </ul>
             </nav>
+
             <!-- Search bar inside the sidebar for mobile -->
             <div class="sidebar-search">
                 <input type="text" id="sidebar-search-bar" placeholder="Search..." aria-label="Mobile Search">
@@ -62,6 +67,20 @@
             </div>
         </div>
     </aside>
+
+    <!-- Overlay for the sidebar (mobile) -->
+    <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- JavaScript to toggle sidebar -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
