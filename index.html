@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TorqueTrend is your trusted automotive industry blog featuring the latest car reviews, rankings, and news.">
+    <title>Automotive Industry Blog - Best in Class</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header-futuristic">
+        <div class="header-content">
+            <div class="logo">
+                <h1>TorqueTrend</h1>
+            </div>
+            <!-- Hamburger Menu Icon for mobile -->
+            <div class="hamburger-menu" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Primary navigation for desktop -->
+            <nav class="desktop-nav">
+                <ul class="nav-buttons" id="nav-menu" aria-label="Primary Navigation">
+                    <li><button onclick="scrollToSection('home')">Home</button></li>
+                    <li><button onclick="scrollToSection('blog')">Blog</button></li>
+                    <li><button onclick="scrollToSection('rankings')">Rankings</button></li>
+                    <li><button onclick="scrollToSection('reviews')">Reviews</button></li>
+                </ul>
+            </nav>
+            <!-- Search bar for desktop -->
+            <div class="search-bar">
+                <input type="text" id="search-bar" placeholder="Search..." aria-label="Search">
+                <button onclick="searchFunction()">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar for mobile -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-logo">
+                <h1>TorqueTrend</h1>
+            </div>
+            <!-- Sidebar navigation for mobile -->
+            <nav class="mobile-nav">
+                <ul aria-label="Mobile Navigation">
+                    <li><button onclick="scrollToSection('home')">Home</button></li>
+                    <li><button onclick="scrollToSection('blog')">Blog</button></li>
+                    <li><button onclick="scrollToSection('rankings')">Rankings</button></li>
+                    <li><button onclick="scrollToSection('reviews')">Reviews</button></li>
+                </ul>
+            </nav>
+            <!-- Search bar inside the sidebar for mobile -->
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-bar" placeholder="Search..." aria-label="Mobile Search">
+                <button onclick="searchFunction()">Search</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to the Automotive Industry Blog</h1>
+            <p>Your destination for the latest car reviews, rankings, and industry news.</p>
+            <a href="#blog" class="hero-button" aria-label="Explore Articles">Explore Our Articles</a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="content-section">
+        <h2>Latest Blog Posts</h2>
+        <div class="content-grid">
+            <article class="content-box">
+                <h3>The Future of Electric Vehicles</h3>
+                <p>Discover the shift towards electric vehicles and its impact on the automotive industry.</p>
+                <a href="#" class="btn-inside" aria-label="Read More about Electric Vehicles">Read More</a>
+            </article>
+            <article class="content-box">
+                <h3>Top 10 Car Maintenance Tips</h3>
+                <p>Learn the key maintenance tips to keep your vehicle running smoothly for years to come.</p>
+                <a href="#" class="btn-inside" aria-label="Learn More about Car Maintenance">Learn More</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Rankings Section -->
+    <section id="rankings" class="content-section">
+        <h2>Top Vehicle Rankings</h2>
+        <div class="content-grid">
+            <div class="content-box">
+                <h3>Best SUVs of 2024</h3>
+                <ul class="no-bullets">
+                    <li><strong>1. Tesla Model X</strong></li>
+                    <li>2. Ford Bronco</li>
+                    <li>3. BMW X5</li>
+                </ul>
+                <a href="#" class="btn-inside" aria-label="View Full List of Best SUVs">View Full List</a>
+            </div>
+            <div class="content-box">
+                <h3>Best Sedans of 2024</h3>
+                <ul class="no-bullets">
+                    <li><strong>1. Toyota Camry</strong></li>
+                    <li>2. Honda Accord</li>
+                    <li>3. BMW 3 Series</li>
+                </ul>
+                <a href="#" class="btn-inside" aria-label="View Full List of Best Sedans">View Full List</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="content-section">
+        <h2>Recent Car Reviews</h2>
+        <div class="content-grid">
+            <article class="content-box">
+                <h3>2024 Ford Mustang Review</h3>
+                <p>Experience the thrilling drive of the 2024 Ford Mustang with modern tech and muscle.</p>
+                <a href="#" class="btn-inside" aria-label="Read Ford Mustang Review">Read Review</a>
+            </article>
+            <article class="content-box">
+                <h3>2024 Honda CR-V Review</h3>
+                <p>The 2024 Honda CR-V delivers excellent practicality, space, and modern safety features.</p>
+                <a href="#" class="btn-inside" aria-label="Read Honda CR-V Review">Read Review</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-futuristic">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <p>Your trusted source for automotive news, reviews, and rankings. Stay updated with the latest trends.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#home" aria-label="Go to Home">Home</a></li>
+                    <li><a href="#blog" aria-label="Go to Blog">Blog</a></li>
+                    <li><a href="#rankings" aria-label="Go to Rankings">Rankings</a></li>
+                    <li><a href="#reviews" aria-label="Go to Reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#" aria-label="Connect on Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Connect on Twitter">Twitter</a></li>
+                    <li><a href="#" aria-label="Connect on Instagram">Instagram</a></li>
+                    <li><a href="#" aria-label="Connect on LinkedIn">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2045 Automotive Industry Blog - Best in Class. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Placeholder for search results -->
+    <div id="search-results"></div>
+  
+    <script src="scripts.js"></script>
+</body>
+
+</html>
