@@ -25,6 +25,7 @@ ol {
   --box-shadow-contrast: 0 0 15px rgba(255, 152, 0, 0.3), 0 0 25px rgba(255, 152, 0, 0.2);
   --border-radius: 15px;
   --transition-time: 0.3s;
+  --scroll-hide-time: 0.5s;
 }
 
 /* Global Styles */
@@ -57,7 +58,7 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: background-color var(--transition-time), box-shadow var(--transition-time);
+  transition: background-color var(--transition-time), box-shadow var(--transition-time), transform var(--scroll-hide-time);
 }
 
 .header-content {
@@ -99,9 +100,9 @@ body {
 /* Nav Buttons */
 .nav-buttons button {
   padding: 12px 25px;
-  background-color: var(--primary-color); 
-  color: var(--text-color-light); 
-  border-radius: var(--border-radius); 
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  border-radius: var(--border-radius);
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -227,6 +228,11 @@ body {
   .sidebar {
     width: 300px;
   }
+}
+
+/* Hide header on scroll down and show on scroll up */
+.hidden-header {
+  transform: translateY(-100%);
 }
 
 /* Hero Section */
