@@ -286,7 +286,7 @@ body {
 
 /* Content Sections */
 .content-section {
-  background: var(--background-light);
+  background: var(--background-dark);
   padding: 80px 5vw;
   text-align: center;
   color: var(--text-color-dark);
