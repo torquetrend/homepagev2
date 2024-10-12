@@ -286,7 +286,7 @@ body {
 
 /* Content Sections */
 .content-section {
-  background: linear-gradient(135deg, #d9d9d9, #f1f1f1);
+  background: var(--background-light);
   padding: 80px 5vw;
   text-align: center;
   color: var(--text-color-dark);
