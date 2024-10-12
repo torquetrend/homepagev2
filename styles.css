@@ -20,11 +20,9 @@ ol {
   --text-color-dark: #333333;
   --text-color-light: #ffffff;
   --accent-color: #f1f1f1;
-  --box-shadow-strong: 0 0 15px rgba(137, 201, 255, 0.4),
-    0 0 25px rgba(137, 201, 255, 0.3);
+  --box-shadow-strong: 0 0 15px rgba(137, 201, 255, 0.4), 0 0 25px rgba(137, 201, 255, 0.3);
   --box-shadow-soft: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05);
-  --box-shadow-contrast: 0 0 15px rgba(255, 152, 0, 0.3),
-    0 0 25px rgba(255, 152, 0, 0.2);
+  --box-shadow-contrast: 0 0 15px rgba(255, 152, 0, 0.3), 0 0 25px rgba(255, 152, 0, 0.2);
   --border-radius: 15px;
   --transition-time: 0.3s;
 }
@@ -160,11 +158,15 @@ body {
   box-shadow: var(--box-shadow-strong);
 }
 
-/* Sidebar Styles */
+/* Sidebar and Mobile Menu */
+#sidebar-active {
+  display: none;
+}
+
 .sidebar {
   position: fixed;
-  top: 0; 
-  right: -100%; /* Hidden by default */
+  top: 0;
+  right: -100%; /* Initially hidden */
   height: 100vh;
   width: 250px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -175,15 +177,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  transition: right 0.3s ease; /* Smooth slide-in transition */
-}
-
-.sidebar.active {
-  right: 0; /* Slide in the sidebar */
-}
-
-.sidebar li {
-  width: 100%;
+  transition: right 0.75s ease-out; /* Smooth transition */
 }
 
 .sidebar a {
@@ -197,70 +191,45 @@ body {
   background-color: var(--background-dark);
 }
 
-/* Hamburger Menu for Mobile */
+/* Show sidebar when checkbox is checked */
+#sidebar-active:checked ~ .sidebar {
+  right: 0;
+}
+
+/* Overlay for mobile sidebar */
+#sidebar-active:checked ~ #overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+
+/* Hamburger Menu */
 .hamburger-menu {
-  display: none; /* Hidden on larger screens */
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
+  display: none;
 }
 
-.hamburger-menu span {
-  display: block;
-  height: 3px;
-  width: 25px;
-  background-color: var(--text-color-dark);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.hamburger-menu.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger-menu.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-menu.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .header-futuristic {
-    padding: 10px 5vw;
-  }
-
-  .nav-container {
+@media (max-width: 450px) {
+  .nav-buttons {
     display: none;
   }
 
   .hamburger-menu {
-    display: flex;
+    display: block;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 100;
   }
 
   .sidebar {
-    display: flex;
-  }
-
-  .nav-buttons {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .search-bar {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .search-bar input {
-    width: 100%;
+    width: 300px;
   }
 }
 
+/* Hero Section */
 .hero-section {
   background: url("F40-salt-flats.jpg") no-repeat center center/cover;
   height: 100vh;
@@ -268,8 +237,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
 }
 
 .hero-content {
