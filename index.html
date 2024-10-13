@@ -19,7 +19,7 @@
             </div>
 
             <!-- Hamburger Menu Icon for mobile -->
-            <div class="hamburger-menu" aria-label="Menu" aria-expanded="false" onclick="toggleSidebar()">
+            <div class="hamburger-menu" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -38,7 +38,7 @@
             <!-- Search bar for desktop -->
             <div class="search-bar">
                 <input type="text" id="search-bar" placeholder="Search..." aria-label="Search">
-                <button onclick="searchFunction()">Search</button>
+                <button onclick="debouncedSearch()">Search</button>
             </div>
         </div>
     </header>
@@ -63,24 +63,13 @@
             <!-- Search bar inside the sidebar for mobile -->
             <div class="sidebar-search">
                 <input type="text" id="sidebar-search-bar" placeholder="Search..." aria-label="Mobile Search">
-                <button onclick="searchFunction()">Search</button>
+                <button onclick="debouncedSearch()">Search</button>
             </div>
         </div>
     </aside>
 
     <!-- Overlay for the sidebar (mobile) -->
     <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
-
-    <!-- JavaScript to toggle sidebar -->
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-    </script>
-</body>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
@@ -183,7 +172,7 @@
 
     <!-- Placeholder for search results -->
     <div id="search-results"></div>
-  
+
     <script src="scripts.js"></script>
 </body>
 
