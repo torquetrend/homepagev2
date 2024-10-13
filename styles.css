@@ -16,7 +16,7 @@ ol {
   --secondary-color: #ff9800; /* Soft Contrast Orange */
   --secondary-hover: #e68900;
   --background-light: #f1f1f1; /* Quicksilver Background */
-  --background-dark: #e0e0e0; /* Light Silver Gradient */
+  --background-dark: #e0e0e0; /* Lighter background for better contrast */
   --text-color-dark: #333333;
   --text-color-light: #ffffff;
   --accent-color: #f1f1f1;
@@ -54,7 +54,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
   transition: background-color var(--transition-time), box-shadow var(--transition-time);
 }
 
@@ -87,9 +87,9 @@ body {
 
 /* Nav Buttons Scaling */
 .nav-buttons button {
-  padding: 10px 20px; /* Start smaller padding */
-  background-color: var(--primary-color); 
-  color: var(--text-color-light); 
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
   border-radius: var(--border-radius);
   font-weight: bold;
   text-transform: uppercase;
@@ -114,13 +114,13 @@ body {
 
 /* Input Field */
 .search-bar input {
-  padding: 6px 8px; /* Reduced padding for smaller screens */
+  padding: 6px 8px;
   border-radius: var(--border-radius);
   border: 2px solid var(--text-color-dark);
   background: #f1f1f1;
   color: var(--text-color-dark);
   transition: box-shadow var(--transition-time), border-color var(--transition-time), width 0.3s ease;
-  width: 160px; /* Start at a smaller width */
+  width: 160px;
 }
 
 .search-bar input:focus {
@@ -134,7 +134,7 @@ body {
   flex-shrink: 1;
   background-color: var(--primary-color);
   border: 2px solid transparent;
-  padding: 6px 16px; /* Reduced padding for smaller screens */
+  padding: 6px 16px;
   color: var(--text-color-light);
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -150,15 +150,16 @@ body {
 .hamburger-menu {
   display: none;
   flex-direction: column;
-  cursor: pointer;
   gap: 5px;
+  cursor: pointer;
+  z-index: 3000;
 }
 
 .hamburger-menu span {
   display: block;
   height: 3px;
   width: 25px;
-  background-color: var(--text-color-dark);
+  background-color: #000; /* Set to black specifically */
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -177,48 +178,97 @@ body {
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 0;
-  right: -100%; /* Initially hidden */
-  height: 100vh;
-  width: 250px;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-  list-style: none;
+  top: 70px; /* Place below header */
+  right: -300px; /* Initially hidden */
+  width: 300px;
+  height: calc(100vh - 70px); /* Adjust height to account for header height */
+  background: rgba(0, 0, 0, 0.3); /* Lighter background for better readability */
+  backdrop-filter: blur(15px);
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  transition: right 0.3s ease-in-out;
-  z-index: 1000;
+  transition: right 0.3s ease;
+  z-index: 2500;
 }
 
 .sidebar.active {
   right: 0;
 }
 
-.sidebar a {
+/* Sidebar Navigation Buttons and Search Bar */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.sidebar .nav-buttons {
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
-  padding: 15px;
-  text-decoration: none;
+}
+
+.sidebar .nav-buttons button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  transition: background-color var(--transition-time), transform var(--transition-time);
+}
+
+.sidebar .nav-buttons button:hover {
+  background-color: var(--secondary-hover);
+  transform: scale(1.05);
+}
+
+/* Sidebar Search Bar */
+.sidebar .search-bar {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.sidebar .search-bar input {
+  width: calc(100% - 40px);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--text-color-dark);
+  background: #f1f1f1;
   color: var(--text-color-dark);
+  transition: box-shadow var(--transition-time), border-color var(--transition-time);
 }
 
-.sidebar a:hover {
-  background-color: var(--background-dark);
+.sidebar .search-bar button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 10px;
+  color: var(--text-color-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-time), box-shadow var(--transition-time);
 }
 
-#overlay {
+/* Overlay for Sidebar */
+#sidebar-overlay {
   display: none;
-}
-
-#overlay.active {
-  display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 900;
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+}
+
+#sidebar-overlay.active {
+  display: block;
 }
 
 /* Responsive and Mobile Specific Styles */
@@ -232,7 +282,7 @@ body {
   }
 
   .hamburger-menu {
-    display: flex;
+    display: flex; /* Show hamburger menu on mobile */
   }
 
   .sidebar {
@@ -304,7 +354,6 @@ body {
   transform: scale(1.1);
 }
 
-/* Content Sections */
 /* Content Sections */
 .content-section {
   background: var(--background-dark);
