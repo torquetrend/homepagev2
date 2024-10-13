@@ -182,7 +182,7 @@ body {
     right: -350px;
     width: 350px;
     height: calc(100vh - 70px);
-    background-color: rgba(50, 50, 50, 0.75); /* More transparent grey background */
+    background-color: rgba(50, 50, 50, 0.35); /* More transparent grey background */
     backdrop-filter: blur(15px); /* Blur effect */
     box-shadow: -15px 0 40px rgba(0, 0, 0, 0.3);
     display: flex;
