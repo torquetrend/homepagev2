@@ -4,9 +4,8 @@
 function debounce(func, wait) {
     let timeout;
     return function (...args) {
-        const context = this;
         clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
+        timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
 
@@ -16,10 +15,7 @@ function searchFunction() {
     const resultsContainer = document.getElementById("search-results");
 
     if (resultsContainer) {
-        // Simulating a dynamic search result display with a loading message
         resultsContainer.innerHTML = `Searching for "${query}"... (Feature in development)`;
-    } else {
-        console.error("Search results container not found.");
     }
 }
 
@@ -36,7 +32,7 @@ function toggleSidebar() {
     hamburgerMenu.classList.toggle("active");
 
     // Update ARIA attributes for accessibility
-    hamburgerMenu.setAttribute("aria-expanded", isActive ? "true" : "false");
+    hamburgerMenu.setAttribute("aria-expanded", isActive);
 }
 
 // Sanitize input to prevent XSS attacks
@@ -46,21 +42,13 @@ function sanitizeInput(input) {
     return temp.innerHTML;
 }
 
-// Fetch example with async/await and error handling
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error("Error fetching data:", error);
-    }
+// Event listener to toggle the sidebar and hamburger menu
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', toggleSidebar);
 }
 
-// Performance enhancements: Lazy loading and requestAnimationFrame example
+// Performance enhancements: Lazy loading for images
 function lazyLoadImages() {
     const images = document.querySelectorAll("img[data-src]");
     const loadImage = (image) => {
@@ -83,18 +71,3 @@ function lazyLoadImages() {
 }
 
 document.addEventListener("DOMContentLoaded", lazyLoadImages);
-
-// Adding performance metrics monitoring using Performance API
-function monitorPerformanceMetrics() {
-    if ("performance" in window) {
-        const { timing } = performance;
-        const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
-        console.log("Page Load Time:", pageLoadTime);
-    }
-}
-
-monitorPerformanceMetrics();
-
-// Event listener to toggle the sidebar and hamburger menu
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-hamburgerMenu.addEventListener('click', toggleSidebar);
