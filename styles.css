@@ -178,16 +178,17 @@ body {
 /* Sidebar */
 .sidebar {
     position: fixed;
-    top: 70px; /* Below the header */
-    right: -350px; /* Initially hidden */
+    top: 70px;
+    right: -350px;
     width: 350px;
-    height: calc(100vh - 70px); /* Adjust height to fit below header */
+    height: calc(100vh - 70px);
     background: linear-gradient(135deg, rgba(137, 201, 255, 0.4), rgba(0, 150, 255, 0.3));
     backdrop-filter: blur(15px);
     box-shadow: -15px 0 40px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
     transition: right 0.3s ease-in-out, background-color 0.3s ease-in-out;
     z-index: 9999;
     border-radius: 20px 0 0 20px;
@@ -197,28 +198,17 @@ body {
     right: 0;
 }
 
-/* Sidebar Content */
-.sidebar-content {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px;
-}
-
-.sidebar-logo h1 {
-    font-size: 24px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
 /* Sidebar Navigation Buttons */
-.sidebar .mobile-nav ul {
+.sidebar .nav-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    padding: 20px;
+    width: 100%; /* Ensure full width */
+    align-items: center; /* Center the buttons horizontally */
 }
 
-.sidebar .mobile-nav button {
+.sidebar .nav-buttons button {
     padding: 12px 25px;
     background-color: var(--primary-color); 
     color: var(--text-color-light);
@@ -231,24 +221,28 @@ body {
     transition: background-color var(--transition-time), transform var(--transition-time);
     letter-spacing: 1px;
     border: none;
+    box-sizing: border-box;
+    width: 90%; /* Take up 90% of the sidebar width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar .mobile-nav button:hover {
+.sidebar .nav-buttons button:hover {
     background-color: var(--primary-hover);
     transform: scale(1.05); /* Slight zoom effect on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Sidebar Search Bar */
-.sidebar-search {
-    margin-top: 20px;
+.sidebar .search-bar {
     display: flex;
+    align-items: center;
+    justify-content: center; /* Center search bar */
     gap: 10px;
+    padding: 0 20px;
+    width: 100%;
 }
 
-.sidebar-search input {
-    flex: 1;
+.sidebar .search-bar input {
     padding: 8px 10px;
     border-radius: var(--border-radius);
     border: 2px solid var(--text-color-dark);
@@ -256,28 +250,28 @@ body {
     color: var(--text-color-dark);
     box-shadow: var(--box-shadow-soft);
     transition: box-shadow var(--transition-time), border-color var(--transition-time);
-    font-size: 1rem;
+    width: 70%; /* Make the input field take most of the sidebar's width */
 }
 
-.sidebar-search input:focus {
+.sidebar .search-bar input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 15px var(--primary-color); /* Glowing effect on focus */
 }
 
-.sidebar-search button {
+.sidebar .search-bar button {
     padding: 8px 15px;
     background-color: var(--primary-color); 
     color: var(--text-color-light);
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background-color var(--transition-time), transform var(--transition-time);
+    transition: background-color var(--transition-time), transform var (--transition-time);
     border: none;
     font-size: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-search button:hover {
+.sidebar .search-bar button:hover {
     background-color: var(--primary-hover);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
@@ -298,6 +292,54 @@ body {
 
 #sidebar-overlay.active {
     display: block;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 3000;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background-color: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-buttons {
+        display: none; /* Hide desktop nav on mobile */
+    }
+
+    .search-bar {
+        display: none; /* Hide search bar on mobile */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show hamburger menu on mobile */
+    }
+
+    .sidebar {
+        width: 300px;
+    }
 }
 
 /* Hero Section */
