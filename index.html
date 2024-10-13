@@ -43,30 +43,33 @@
         </div>
     </header>
 
-    <!-- Sidebar for mobile -->
-    <aside id="sidebar" class="sidebar">
-        <div class="sidebar-content">
-            <div class="sidebar-logo">
-                <h1>TorqueTrend</h1>
-            </div>
-
-            <!-- Sidebar navigation for mobile -->
-            <nav class="mobile-nav">
-                <ul aria-label="Mobile Navigation">
-                    <li><button onclick="scrollToSection('home')">Home</button></li>
-                    <li><button onclick="scrollToSection('blog')">Blog</button></li>
-                    <li><button onclick="scrollToSection('rankings')">Rankings</button></li>
-                    <li><button onclick="scrollToSection('reviews')">Reviews</button></li>
-                </ul>
-            </nav>
-
-            <!-- Search bar inside the sidebar for mobile -->
-            <div class="sidebar-search">
-                <input type="text" id="sidebar-search-bar" placeholder="Search..." aria-label="Mobile Search">
-                <button onclick="debouncedSearch()">Search</button>
-            </div>
+<!-- Sidebar for mobile -->
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+        <div class="sidebar-logo">
+            <h1>TorqueTrend</h1>
         </div>
-    </aside>
+
+        <!-- Sidebar navigation for mobile -->
+        <nav class="mobile-nav">
+            <ul aria-label="Mobile Navigation">
+                <li><button onclick="scrollToSection('home')">Home</button></li>
+                <li><button onclick="scrollToSection('blog')">Blog</button></li>
+                <li><button onclick="scrollToSection('rankings')">Rankings</button></li>
+                <li><button onclick="scrollToSection('reviews')">Reviews</button></li>
+            </ul>
+        </nav>
+
+        <!-- Search bar inside the sidebar for mobile -->
+        <div class="sidebar-search">
+            <input type="text" id="sidebar-search-bar" placeholder="Search..." aria-label="Mobile Search">
+            <button onclick="debouncedSearch()">Search</button>
+        </div>
+    </div>
+</aside>
+
+<!-- Overlay for the sidebar (mobile) -->
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
     <!-- Overlay for the sidebar (mobile) -->
     <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
