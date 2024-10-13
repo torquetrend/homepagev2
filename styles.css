@@ -182,8 +182,8 @@ body {
     right: -350px;
     width: 350px;
     height: calc(100vh - 70px);
-    background: linear-gradient(135deg, rgba(50, 50, 50, 0.6), rgba(30, 30, 30, 0.4)); /* Dark grey gradient */
-    backdrop-filter: blur(15px); /* Blur effect */
+    background-color: rgba(50, 50, 50, 0.9); /* Solid dark grey */
+    backdrop-filter: blur(15px); /* Keeps the blur effect */
     box-shadow: -15px 0 40px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
